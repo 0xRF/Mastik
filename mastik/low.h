@@ -36,6 +36,20 @@ static inline int memaccess(void *v) {
   return rv;
 }
 
+static inline uint32_t no_lfence_memaccesstime(void *v) {
+  uint32_t rv;
+  asm volatile (
+      "mfence\n"
+      "rdtscp\n"
+      "mov %%eax, %%esi\n"
+      "mov (%1), %%eax\n"
+      "rdtscp\n"
+      "sub %%esi, %%eax\n"
+      : "=&a" (rv): "r" (v): "ecx", "edx", "esi");
+  return rv;
+}
+
+
 static inline uint32_t memaccesstime(void *v) {
   uint32_t rv;
   asm volatile (

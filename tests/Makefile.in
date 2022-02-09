@@ -5,7 +5,8 @@ FILES= \
        testl1.c \
        testl1i.c \
        testl3.c \
-       testl1aes.c
+       testl1aes.c \
+	   test_ps.c
 
 prefix=@prefix@
 exec_prefix=@exec_prefix@
@@ -28,6 +29,9 @@ testl1aes: testl1aes.o aes_core.o
 	${CC} ${LDFLAGS} -o $@ testl1aes.o aes_core.o ${LDLIBS}
        
 testl2aes: testl2aes.o aes_core.o
+	${CC} ${LDFLAGS} -o $@ $^ ${LDLIBS}
+
+test_ps: test_ps.o
 	${CC} ${LDFLAGS} -o $@ $^ ${LDLIBS}
 
 install:

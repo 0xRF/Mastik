@@ -15,7 +15,12 @@ HEADERS= \
 	symbol.h \
 	synctrace.h \
 	transient.h \
-	util.h
+	util.h \
+	list_struct.h \
+	list_traverse.h \
+	list_utils.h \
+	ps_evset.h \
+	prime.h
 
 prefix=@prefix@
 exec_prefix=@exec_prefix@
