@@ -1,12 +1,12 @@
 #include <stdio.h>
 
+#include <mastik/list.h>
 #include <mastik/list_traverse.h>
-#include <mastik/list_struct.h>
 #include <mastik/low.h>
 
 inline
 void
-traverse_list_skylake(Elem *ptr)
+traverse_list_skylake(node *ptr)
 {
 	while (ptr && ptr->next && ptr->next->next)
 	{
@@ -22,7 +22,7 @@ traverse_list_skylake(Elem *ptr)
 
 inline
 void
-traverse_list_asm_skylake(Elem *ptr)
+traverse_list_asm_skylake(node *ptr)
 {
 	__asm__ volatile
 	(
@@ -50,7 +50,7 @@ traverse_list_asm_skylake(Elem *ptr)
 
 inline
 void
-traverse_list_asm_haswell(Elem *ptr)
+traverse_list_asm_haswell(node *ptr)
 {
 	__asm__ volatile
 	(
@@ -74,7 +74,7 @@ traverse_list_asm_haswell(Elem *ptr)
 
 inline
 void
-traverse_list_asm_simple(Elem *ptr)
+traverse_list_asm_simple(node *ptr)
 {
 	__asm__ volatile
 	(
@@ -92,7 +92,7 @@ traverse_list_asm_simple(Elem *ptr)
 
 inline
 void
-traverse_list_haswell(Elem *ptr)
+traverse_list_haswell(node *ptr)
 {
 	while (ptr && ptr->next)
 	{
@@ -106,7 +106,7 @@ traverse_list_haswell(Elem *ptr)
 
 inline
 void
-traverse_list_simple(Elem *ptr)
+traverse_list_simple(node *ptr)
 {
 	while (ptr)
 	{
@@ -117,7 +117,7 @@ traverse_list_simple(Elem *ptr)
 
 inline
 void
-traverse_list_to_n(Elem *ptr, int n)
+traverse_list_to_n(node *ptr, int n)
 {
 	while (ptr && n-- > 0)
 	{
@@ -128,7 +128,7 @@ traverse_list_to_n(Elem *ptr, int n)
 
 inline
 void
-traverse_list_to_n_skylake(Elem *ptr, int n)
+traverse_list_to_n_skylake(node *ptr, int n)
 {
 	while (n > 2 && ptr && ptr->next && ptr->next->next)
 	{
@@ -158,7 +158,7 @@ inline
 void
 // Traverse list, interleave with access to first element
 // To keep it in private caches
-traverse_zigzag_victim(Elem *ptr, void *victim)
+traverse_zigzag_victim(node *ptr, void *victim)
 {
     while (ptr)
     {

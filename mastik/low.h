@@ -21,6 +21,7 @@
 #define __LOW_H__ 1
 
 #include <stdint.h>
+#include <stdlib.h>
 
 #define L3_THRESHOLD 140
 

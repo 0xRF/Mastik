@@ -1,24 +1,24 @@
 #include <mastik/prime.h>
-#include <matik/list_utils.h>
+#include <mastik/list.h>
 
 // 2018 | Coffee Lake  | Inclusive LLC with 12 Ways | 4 Repeats
 void traverse_Intel_Core_i7_9700K(uint64_t* arr) {
   int i;
   for(i=0; i<9; i+=4) {
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
   }
 }
 
@@ -26,22 +26,22 @@ void traverse_Intel_Core_i7_9700K(uint64_t* arr) {
 void traverse_Intel_Core_i7_7700K(uint64_t* arr) {
   int i;
   for(i=0; i<13; i+=4) {
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
   }
 }
 
@@ -49,18 +49,18 @@ void traverse_Intel_Core_i7_7700K(uint64_t* arr) {
 void traverse_Intel_Core_i5_7500 (uint64_t* arr) {
   int i;
   for(i=0; i<9; i+=4) {
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
   }
 }
 
@@ -68,22 +68,22 @@ void traverse_Intel_Core_i5_7500 (uint64_t* arr) {
 void traverse_Intel_Core_i7_6700 (uint64_t* arr) {
   int i;
   for(i=0; i<13; i+=4) {
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
   }
 }
 
@@ -91,18 +91,18 @@ void traverse_Intel_Core_i7_6700 (uint64_t* arr) {
 void traverse_Intel_Core_i5_6500 (uint64_t* arr) {
   int i;
   for(i=0; i<9; i+=4) {
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
   }
 }
 
@@ -110,18 +110,18 @@ void traverse_Intel_Core_i5_6500 (uint64_t* arr) {
 void traverse_Intel_Core_i7_4790 (uint64_t* arr) {
   int i;
   for(i=0; i<13; i+=4) {
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+3]);
   }
 }
 
@@ -129,14 +129,14 @@ void traverse_Intel_Core_i7_4790 (uint64_t* arr) {
 void traverse_Intel_Core_i5_4590 (uint64_t* arr) {
   int i;
   for(i=0; i<10; i+=1) {
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
   }
 }
 
@@ -144,22 +144,22 @@ void traverse_Intel_Core_i5_4590 (uint64_t* arr) {
 void traverse_Intel_Core_i7_3770 (uint64_t* arr) {
   int i;
   for(i=0; i<13; i+=4) {
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+3]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+3]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
   }
 }
 
@@ -167,14 +167,14 @@ void traverse_Intel_Core_i7_3770 (uint64_t* arr) {
 void traverse_Intel_Core_i5_3450 (uint64_t* arr) {
   int i;
   for(i=0; i<10; i+=1) {
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
   }
 }
 
@@ -182,18 +182,18 @@ void traverse_Intel_Core_i5_3450 (uint64_t* arr) {
 void traverse_Intel_Core_i5_2400 (uint64_t* arr) {
   int i;
   for(i=0; i<10; i+=1) {
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[  0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
-    maccess((void *) arr[i+0]);
-    maccess((void *) arr[i+1]);
-    maccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[  0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
+    memaccess((void *) arr[i+0]);
+    memaccess((void *) arr[i+1]);
+    memaccess((void *) arr[i+2]);
   }
 }
 
 // 2019 | Xeon Silver  | Non-Inclusive LLC with 12 Ways | 1 Repeat
-void traverse_Intel_Xeon_Silver_4208(Elem *list)
+void traverse_Intel_Xeon_Silver_4208(node *list)
 {
   // Fences at every two accesses against hardware stride prefetching [?]
 	__asm__ volatile

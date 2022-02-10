@@ -1,9 +1,10 @@
 #pragma once
 
+#define SKYLAKE16
 #include <stdint.h>
-#include "configuration.h"
-#include "../utils/cache_utils.h"
-#include "../evsets/list/list_utils.h"
+#include <stdlib.h>
+#include <mastik/low.h>
+#include <mastik/list.h>
 
 ////////////////////////////
 // PRIME PATTERNS (Table 1)
@@ -18,7 +19,7 @@ void traverse_Intel_Core_i5_4590    (uint64_t* arr); // 2013 | Haswell      | In
 void traverse_Intel_Core_i7_3770    (uint64_t* arr); // 2012 | Ivy Bridge   | Inclusive LLC with 16 Ways     | 3 Repeats
 void traverse_Intel_Core_i5_3450    (uint64_t* arr); // 2012 | Ivy Bridge   | Inclusive LLC with 12 Ways     | 2 Repeats
 void traverse_Intel_Core_i5_2400    (uint64_t* arr); // 2011 | Sandy Bridge | Inclusive LLC with 12 Ways     | 5 Repeats
-void traverse_Intel_Xeon_Silver_4208(Elem*    list); // 2019 | Xeon Silver  | Non-Inclusive LLC with 11 Ways (CD has 12 ways) | 1 Repeat
+// void traverse_Intel_Xeon_Silver_4208(Elem*    list); // 2019 | Xeon Silver  | Non-Inclusive LLC with 11 Ways (CD has 12 ways) | 1 Repeat
 
 
 
@@ -99,6 +100,3 @@ void traverse_Intel_Xeon_Silver_4208(Elem*    list); // 2019 | Xeon Silver  | No
     traverse_Intel_Xeon_Silver_4208(x); })
 #endif
 
-#ifdef YOUROWNPLATFORM
-  #error Prime function undefined!
-#endif

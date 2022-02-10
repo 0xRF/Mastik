@@ -15,8 +15,8 @@ LIBSRCS= \
 	synctrace.c \
 	timestats.c \
 	vlist.c \
-	ps_evset.c \
-	list_utils.c \
+	ps.c \
+	list.c \
 	list_traverse.c \
 	prime.c \
 	@SYMBOL_SRCS@
@@ -66,9 +66,9 @@ pda.o: ../mastik/pda.h ../mastik/low.h vlist.h config.h
 
 prime.o: ../mastik/prime.h ../mastik/low.h config.h
 
-ps_evset.o: ../mastik/ps_evset.h ../mastik/low.h config.h
+ps.o: ../mastik/ps.h ../mastik/low.h config.h
 
-list_utils.o: ../mastik/list_utils.h ../mastik/low.h config.h
+list.o: ../mastik/list.h ../mastik/low.h config.h
 
 list_traverse.o: ../mastik/list_traverse.h ../mastik/low.h config.h
 
