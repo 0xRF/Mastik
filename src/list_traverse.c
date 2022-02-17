@@ -154,11 +154,7 @@ traverse_list_to_n_skylake(node *ptr, int n)
 	}
 }
 
-inline
-void
-// Traverse list, interleave with access to first element
-// To keep it in private caches
-traverse_zigzag_victim(node *ptr, void *victim)
+inline void traverse_zigzag_victim(node *ptr, void *victim)
 {
     while (ptr)
     {

@@ -1,0 +1,736 @@
+[
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "cb.o",
+   "cb.c"
+  ],
+  "file": "cb.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "ff.o",
+   "ff.c"
+  ],
+  "file": "ff.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "fr.o",
+   "fr.c"
+  ],
+  "file": "fr.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "l1.o",
+   "l1.c"
+  ],
+  "file": "l1.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "l1i.o",
+   "l1i.c"
+  ],
+  "file": "l1i.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "l2.o",
+   "l2.c"
+  ],
+  "file": "l2.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "l3.o",
+   "l3.c"
+  ],
+  "file": "l3.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "lx.o",
+   "lx.c"
+  ],
+  "file": "lx.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "mm.o",
+   "mm.c"
+  ],
+  "file": "mm.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "pda.o",
+   "pda.c"
+  ],
+  "file": "pda.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "util.o",
+   "util.c"
+  ],
+  "file": "util.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "symbol.o",
+   "symbol.c"
+  ],
+  "file": "symbol.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "synctrace.o",
+   "synctrace.c"
+  ],
+  "file": "synctrace.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "timestats.o",
+   "timestats.c"
+  ],
+  "file": "timestats.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "vlist.o",
+   "vlist.c"
+  ],
+  "file": "vlist.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "list_traverse.o",
+   "list_traverse.c"
+  ],
+  "file": "list_traverse.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "prime.o",
+   "prime.c"
+  ],
+  "file": "prime.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "symbol_bfd.o",
+   "symbol_bfd.c"
+  ],
+  "file": "symbol_bfd.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/bin",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-trace.o",
+   "FR-trace.c"
+  ],
+  "file": "FR-trace.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "CB-hist.o",
+   "CB-hist.c"
+  ],
+  "file": "CB-hist.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FF-gnupg-1.4.13.o",
+   "FF-gnupg-1.4.13.c"
+  ],
+  "file": "FF-gnupg-1.4.13.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FF-trace.o",
+   "FF-trace.c"
+  ],
+  "file": "FF-trace.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-1-file-access.o",
+   "FR-1-file-access.c"
+  ],
+  "file": "FR-1-file-access.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-2-file-access.o",
+   "FR-2-file-access.c"
+  ],
+  "file": "FR-2-file-access.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-flush.o",
+   "FR-flush.c"
+  ],
+  "file": "FR-flush.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-function-call-nodelay.o",
+   "FR-function-call-nodelay.c"
+  ],
+  "file": "FR-function-call-nodelay.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-function-call.o",
+   "FR-function-call.c"
+  ],
+  "file": "FR-function-call.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-gnupg-1.4.13.o",
+   "FR-gnupg-1.4.13.c"
+  ],
+  "file": "FR-gnupg-1.4.13.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "FR-threshold.o",
+   "FR-threshold.c"
+  ],
+  "file": "FR-threshold.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L1-capture.o",
+   "L1-capture.c"
+  ],
+  "file": "L1-capture.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L1-rattle.o",
+   "L1-rattle.c"
+  ],
+  "file": "L1-rattle.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L3-capture.o",
+   "L3-capture.c"
+  ],
+  "file": "L3-capture.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L3-capturecount.o",
+   "L3-capturecount.c"
+  ],
+  "file": "L3-capturecount.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L3-scan.o",
+   "L3-scan.c"
+  ],
+  "file": "L3-scan.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L2-capture.o",
+   "L2-capture.c"
+  ],
+  "file": "L2-capture.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L2-rattle.o",
+   "L2-rattle.c"
+  ],
+  "file": "L2-rattle.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "L2-sequence.o",
+   "L2-sequence.c"
+  ],
+  "file": "L2-sequence.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "ST-L2PP-AES.o",
+   "ST-L2PP-AES.c"
+  ],
+  "file": "ST-L2PP-AES.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "aes_core.o",
+   "aes_core.c"
+  ],
+  "file": "aes_core.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/demo",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "ST-L1PP-AES.o",
+   "ST-L1PP-AES.c"
+  ],
+  "file": "ST-L1PP-AES.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "l1irattle.o",
+   "l1irattle.c"
+  ],
+  "file": "l1irattle.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "l1rattle.o",
+   "l1rattle.c"
+  ],
+  "file": "l1rattle.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "testfr.o",
+   "testfr.c"
+  ],
+  "file": "testfr.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "testl1.o",
+   "testl1.c"
+  ],
+  "file": "testl1.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "testl1i.o",
+   "testl1i.c"
+  ],
+  "file": "testl1i.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "testl3.o",
+   "testl3.c"
+  ],
+  "file": "testl3.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "testl1aes.o",
+   "testl1aes.c"
+  ],
+  "file": "testl1aes.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "aes_core.o",
+   "aes_core.c"
+  ],
+  "file": "aes_core.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/tests",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-c",
+   "-o",
+   "test_ps.o",
+   "test_ps.c"
+  ],
+  "file": "test_ps.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "list.o",
+   "list.c"
+  ],
+  "file": "list.c"
+ },
+ {
+  "directory": "/home/rf/code/glowindark/OK_FINAL_MASTIK/Mastik/src",
+  "arguments": [
+   "cc",
+   "-g",
+   "-O1",
+   "-I..",
+   "-DNDEBUG",
+   "-c",
+   "-o",
+   "ps.o",
+   "ps.c"
+  ],
+  "file": "ps.c"
+ }
+]

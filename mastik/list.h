@@ -15,6 +15,10 @@ typedef struct node_t
 
 typedef node** list;
 
+#define LIKELY(x) __builtin_expect((x),1)
+#define UNLIKELY(x) __builtin_expect((x),0)
+// #define LIKELY(x) x
+// #define UNLIKELY(x) x
 
 int   list_to_array(node *ptr, uint64_t *array);
 int   list_length(node *ptr);

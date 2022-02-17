@@ -27,6 +27,7 @@
 
 #define LNEXT(t) (*(void **)(t))
 #define OFFSET(p, o) ((void *)((uintptr_t)(p) + (o)))
+#define OFFSET_T(p, o, T) ((T*)((uintptr_t)(p) + (o)))
 #define NEXTPTR(p) (OFFSET((p), sizeof(void *)))
 
 #define IS_MONITORED(monitored, setno) ((monitored)[(setno)>>5] & (1 << ((setno)&0x1f)))

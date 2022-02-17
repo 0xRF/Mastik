@@ -65,25 +65,25 @@ void traverse_Intel_Core_i5_7500 (uint64_t* arr) {
 }
 
 // 2015 | Skylake      | Inclusive LLC with 16 Ways | 3 Repeats
-void traverse_Intel_Core_i7_6700 (uint64_t* arr) {
+void traverse_Intel_Core_i7_6700 (uint64_t* set) {
   int i;
   for(i=0; i<13; i+=4) {
-    memaccess((void *) arr[i+0]);
-    memaccess((void *) arr[i+1]);
-    memaccess((void *) arr[  0]);
-    memaccess((void *) arr[  0]);
-    memaccess((void *) arr[i+2]);
-    memaccess((void *) arr[  0]);
-    memaccess((void *) arr[  0]);
-    memaccess((void *) arr[i+3]);
-    memaccess((void *) arr[i+0]);
-    memaccess((void *) arr[i+1]);
-    memaccess((void *) arr[i+2]);
-    memaccess((void *) arr[i+3]);
-    memaccess((void *) arr[i+0]);
-    memaccess((void *) arr[i+1]);
-    memaccess((void *) arr[i+2]);
-    memaccess((void *) arr[i+3]);
+    memaccess((void *) set[i+0]);
+    memaccess((void *) set[i+1]);
+    memaccess((void *) set[  0]);
+    memaccess((void *) set[  0]);
+    memaccess((void *) set[i+2]);
+    memaccess((void *) set[  0]);
+    memaccess((void *) set[  0]);
+    memaccess((void *) set[i+3]);
+    memaccess((void *) set[i+0]);
+    memaccess((void *) set[i+1]);
+    memaccess((void *) set[i+2]);
+    memaccess((void *) set[i+3]);
+    memaccess((void *) set[i+0]);
+    memaccess((void *) set[i+1]);
+    memaccess((void *) set[i+2]);
+    memaccess((void *) set[i+3]);
   }
 }
 

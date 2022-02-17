@@ -19,7 +19,8 @@ HEADERS= \
 	list.h \
 	list_traverse.h \
 	ps.h \
-	prime.h
+	prime.h \
+	thresholds.h
 
 prefix=@prefix@
 exec_prefix=@exec_prefix@

@@ -4,81 +4,117 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <mastik/impl.h>
+#include <mastik/info.h>
 #include <mastik/list.h>
+#include <mastik/list_traverse.h>
 #include <mastik/low.h>
 #include <mastik/ps.h>
+#include <mastik/thresholds.h>
 
-int ps_evset_reduce(list head, char *victim, int len, int threshold);
+struct ps {
+  int testMethod;
+  struct lxinfo info;
+  uintptr_t *guessPoolBuffer;
+  uint32_t poolSize;
+  threshold_info thresholds;
+  uint32_t targetSetLength;
+  uint32_t maxAttempts;
+  uint32_t maxExtension;
+  uint32_t pageSize;
+};
 
-int ps_evset(list evset, char *victim, int len, uint64_t *page, int is_huge,
-             int threshold) {
-  // int is_list_empty = 1; // append works the same for empty list, no special
-  // treatment needed
+// TODO dont be lazy
+void l3info_init(lxinfo_t info) {
+  info->associativity = 16;
+  cpuid(&info->cpuidInfo);
+  info->flags = LXFLAG_NOHUGEPAGES;
+  info->slices = 1 << 3;
+  info->sets = 1 << 10;
+}
+
+ps_t ps_prepare(int test_method, threshold_info *thresholds, l3info_t info) {
+
+  ps_t rv = (ps_t)malloc(sizeof(struct ps));
+  rv->testMethod = test_method;
+
+  if (info != NULL)
+    bcopy(&rv->info, info, sizeof(struct lxinfo));
+  l3info_init(&rv->info);
+
+  // TODO
+  rv->maxAttempts = 32;
+  rv->maxExtension = 48;
+  rv->targetSetLength = 16;
+  memcpy(&rv->thresholds, thresholds, sizeof(threshold_info));
+
+  puts("Using thresholds:");
+  printf("\t LLC %d", rv->thresholds.lastlevelCache);
+  printf("\t L1/L2 %d", rv->thresholds.lowerCaches);
+  printf("\t Threshold %d\n", rv->thresholds.threshold);
+  rv->pageSize =
+      ((rv->info.flags & LXFLAG_NOHUGEPAGES) == rv->info.flags) ? 4096 : 0;
+
+  rv->guessPoolBuffer = (uintptr_t *)malloc(EVICT_LLC_SIZE);
+  rv->poolSize = MAX_POOL_SIZE_SMALL;
+
+  ps_premap(rv);
+
+  return rv;
+}
+
+void ps_guess_pool_refresh(ps_t ps, uintptr_t *guess_pool, uintptr_t victim) {
+  uintptr_t *page = ps->guessPoolBuffer;
+  for (int i = 0; i < MAX_POOL_SIZE_SMALL; i++)
+    guess_pool[i] =
+        ((uint64_t)page + ((uint64_t)victim & (SMALLPAGE_PERIOD - 1)) +
+         (rand() % MAX_POOL_SIZE_SMALL) * SMALLPAGE_PERIOD);
+}
+
+// int ps_evset_reduce(list head, char *victim, int len, int threshold);
+
+static uint64_t guess_pool[MAX_POOL_SIZE];
+
+int ps_set_create(ps_t ps, uintptr_t target, uint64_t *page, list evset) {
   int list_len = 0;
-  int len_requested = len;
+  int len = ps->targetSetLength;
   int guess_index = 0;
   int counter_attempt = 0;
-  int i;
-  int counter_guess, try_guesses, time;
+  int threshold = ps->thresholds.threshold;
 
-  node *evset_last = NULL;
   *evset = NULL;
 
-  //////////////////////////////////////////////////////////////////////////////
-  // Create a guess pool
+  int pool_size = ps->poolSize;
 
-  uint64_t guess_pool[MAX_POOL_SIZE];
-
-  int pool_size = (is_huge) ? MAX_POOL_SIZE_HUGE : MAX_POOL_SIZE_SMALL;
-
-#if RANDOMIZE_GUESS_POOL == 0
-  for (i = 0; i < pool_size; i++) {
-    guess_pool[i] =
-        (is_huge)
-            ? ((uint64_t)page + ((uint64_t)victim & (LLC_PERIOD - 1)) +
-               i * LLC_PERIOD)
-            : ((uint64_t)page + ((uint64_t)victim & (SMALLPAGE_PERIOD - 1)) +
-               i * SMALLPAGE_PERIOD);
+  // ps_guess_pool_refresh(ps, guess_pool, target);
+  for (int i = 0; i < pool_size; i++) {
+    guess_pool[i] = ((uint64_t)page + ((uint64_t)target & (SMALLPAGE_PERIOD - 1)) + (rand() % MAX_POOL_SIZE_SMALL) * SMALLPAGE_PERIOD);
   }
-#else
-  // Potential improvement: randomization could be better (e.g., to avoid
-  // duplicates)
-  for (i = 0; i < pool_size; i++) {
-    guess_pool[i] =
-        (is_huge)
-            ? ((uint64_t)page + ((uint64_t)victim & (LLC_PERIOD - 1)) +
-               (rand() % MAX_POOL_SIZE_HUGE) * LLC_PERIOD)
-            : ((uint64_t)page + ((uint64_t)victim & (SMALLPAGE_PERIOD - 1)) +
-               (rand() % MAX_POOL_SIZE_SMALL) * SMALLPAGE_PERIOD);
-  }
-#endif
-
-  //////////////////////////////////////////////////////////////////////////////
-  // Start finding eviction set
 
 extend:
-  while (list_len < len) {
-    counter_guess = 0;
-    try_guesses = true;
-    memaccess((void *)victim);
+  while (LIKELY(list_len < len)) {
+    int counter_guess = 0;
+    int try_guesses = true;
+    memaccess((void *)target);
     asm volatile("lfence;mfence");
 
-    traverse_zigzag_victim(*evset, (void *)victim);
-    traverse_zigzag_victim(*evset, (void *)victim);
+    traverse_zigzag_victim(*evset, (void *)target);
+    traverse_zigzag_victim(*evset, (void *)target);
     while (try_guesses) {
-      memaccess((void *)guess_pool[guess_index]);
+
+      node *candidate= (node *)guess_pool[guess_index];
+      memaccess((void *)candidate);
       asm volatile("lfence");
 
       // Measure TARGET
-      time = no_lfence_memaccesstime((void *)victim);
+     uint32_t time = no_lfence_memaccesstime((void *)target);
 
-      if (time > threshold - 20 && time < 2 * threshold) {
+      if (UNLIKELY(time > threshold - 20 && time < 2 * threshold)) {
         try_guesses = false;
         counter_attempt = 0;
 
         // Add the guess to linkedlist
-        evset_last = (node *)guess_pool[guess_index];
-        list_len = list_append(evset, evset_last);
+        list_len = list_append(evset, candidate);
 
         // Potential improvement: linked list for easy removal
         for (int i = guess_index; i < pool_size - 1; i++) {
@@ -101,14 +137,14 @@ extend:
     }
   }
 
-  if (!ps_evset_test(evset, victim, threshold, 10, EVTEST_MEDIAN)) {
-    if (++len < MAX_EXTENSION)
+  if (LIKELY(!ps_set_valid(ps, *evset, target, threshold))) {
+    if (LIKELY(++len < MAX_EXTENSION))
       goto extend; // Obtain one more address
     return PS_FAIL_EXTENSION;
   }
 
-  if (list_len > len_requested) {
-    if (!ps_evset_reduce(evset, victim, len_requested, threshold)) {
+  if (list_len > ps->targetSetLength) {
+    if (!ps_evset_reduce(ps, evset, list_len, ps->targetSetLength, target, threshold)) {
       return PS_FAIL_REDUCTION;
     }
   }
@@ -116,54 +152,35 @@ extend:
   return PS_SUCCESS;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-int ps_evset_premap(uint64_t *page) {
-  int i;
-  for (i = 0; i < EVICT_LLC_SIZE / (8); i += 128)
-    page[i] = 0x1;
-
-  for (i = 0; i < EVICT_LLC_SIZE / (8); i += 128)
-    page[i] = 0x0;
+void ps_premap(ps_t ps) {
+    memset(ps->guessPoolBuffer, 1, EVICT_LLC_SIZE);
+    memset(ps->guessPoolBuffer, 0, EVICT_LLC_SIZE);
 }
+int ps_evset_reduce(ps_t ps, list evset, int list_len, int targetLength,
+                    uintptr_t target, uint32_t threshold) {
 
-////////////////////////////////////////////////////////////////////////////////
+  for (int i = 0; i < list_len; i++) {
 
-int ps_evset_reduce(list evset, char *victim, int len, int threshold) {
-  int list_len = list_length(*evset), i;
-
-  for (i = 0; i < list_len; i++) {
-
-    // Pop the first element
     node *popped = list_pop(evset);
 
-    // If the reduced list evicts the TARGET, popped element can be removed
-    if (ps_evset_test(evset, victim, threshold, 10, EVTEST_MEDIAN)) {
-      if (list_length(*evset) ==
-          len) {  // If the reduced list is minimal, SUCCESS
-        return 1; // SUCCESS
+    if (LIKELY(ps_set_valid(ps, *evset, target, threshold))) {
+      if (list_length(*evset) == targetLength) {
+        return 1;
       }
-    } else { // If not, append the popped element to the end of list, and try
-             // again
+    } else {
       list_append(evset, popped);
     }
   }
 
-  return 0; // FAIL
+  return 0;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-
 static inline int comp(const void *a, const void *b) {
   return (*(uint64_t *)a - *(uint64_t *)b);
 }
 
-int ps_evset_test(list evset, char *victim, int threshold, int test_len,
-                  int test_method) {
+int ps_set_valid(ps_t ps, node* ptr, uintptr_t victim, uint32_t threshold) {
 
-  // Check, whether the reduced list can evict the TARGET
-
-  int test, time[test_len], time_acc = 0;
+  int time[10], time_acc = 0;
   int i = 0;
 
   // Place TARGET in LLC
@@ -171,37 +188,25 @@ int ps_evset_test(list evset, char *victim, int threshold, int test_len,
   memaccess((void *)victim);
   asm volatile("lfence;mfence");
 
-  for (test = 0; test < test_len; test++) {
+  for (int test = 0; test < 10; test++) {
 
     // Potential improvement: could be sped up
-    traverse_list_asm_skylake(*evset);
-    traverse_list_asm_skylake(*evset);
-    traverse_list_asm_skylake(*evset);
-    traverse_list_asm_skylake(*evset);
+    traverse_list_asm_skylake(ptr);
+    traverse_list_asm_skylake(ptr);
+    traverse_list_asm_skylake(ptr);
+    traverse_list_asm_skylake(ptr);
     asm volatile("lfence;mfence");
 
     // Measure TARGET (and place in LLC for next iteration)
     time[test] = no_lfence_memaccesstime((void *)victim);
-    time_acc += time[test];
   }
+  qsort(time, 10, sizeof(int), comp);
 
-  if (test_method == EVTEST_MEAN) {
+  return time[5] > threshold;
+}
 
-    return (time_acc / test_len) > threshold;
+uint64_t *ps_get_guess_pool(ps_t ps) { return ps->guessPoolBuffer; }
 
-  } else if (test_method == EVTEST_MEDIAN) {
-
-    qsort(time, test_len, sizeof(int), comp);
-
-    return time[test_len / 2] > threshold;
-
-  } else if (test_method == EVTEST_ALLPASS) {
-
-    int all_passed = 1;
-    for (test = 0; test < test_len; test++)
-      if (all_passed && time[test] < threshold)
-        all_passed = 0;
-
-    return all_passed;
-  }
+inline int ps_scope(ps_t ps, uintptr_t scope, uint32_t threshold) {
+  return no_lfence_memaccesstime((void *)scope) > threshold;
 }
